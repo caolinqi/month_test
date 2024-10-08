@@ -24,14 +24,16 @@
       </div>
       <div>
         <el-checkbox v-model="checked" size="large" />我已阅读并同意
-        <a href="#" class="text-blue-500">用户协议</a>和
-        <a href="#" class="text-blue-500">隐私政策</a>
+        <div class="text-blue-500">用户协议</div>
+        和
+        <div class="text-blue-500">隐私政策</div>
       </div>
       <div>
         <el-button type="primary" class="w-[30vw]">登录</el-button>
       </div>
       <div class="flex justify-center">
-        还未注册？<a href="#" class="text-blue-500">立即注册</a>
+        还未注册？
+        <div class="text-blue-500">立即注册</div>
       </div>
     </div>
   </div>
