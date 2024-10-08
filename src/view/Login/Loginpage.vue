@@ -4,7 +4,7 @@
       <img
         src="../../assets/images/appm3V1L6Y3C3podIGShCo686dXRRY4i.png"
         alt=""
-        class="w-[40vw] h-[45vw]"
+        class="w-[40vw] h-[55vw]"
       />
     </div>
     <div class="flex flex-col h-[28vw] justify-around m-auto">
