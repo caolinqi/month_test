@@ -1,43 +1,73 @@
 <template>
-  <div class="flex">
-    <div>
-      <img
-        src="../../assets/images/appm3V1L6Y3C3podIGShCo686dXRRY4i.png"
-        alt=""
-        class="w-[40vw] h-[55vw]"
-      />
+  <div class="flex h-[100vh]">
+    <!-- 左侧图片部分 -->
+    <div class="w-[576px] h-full">
+      <el-carousel height="100vh">
+        <el-carousel-item>
+          <img
+            src="../../assets/images/appm3V1L6Y3C3podIGShCo686dXRRY4i.png"
+            alt=""
+          />
+        </el-carousel-item>
+        <el-carousel-item>
+          <img
+            src="../../assets/images/app9KTBmXHMK2mtI9RHyzPDs-h0NXne1.png"
+            alt=""
+          />
+        </el-carousel-item>
+        <el-carousel-item>
+          <img
+            src="../../assets/images/appzx4bpYR9rpFdZULrF9EFycs2l-416.png"
+            alt=""
+          />
+        </el-carousel-item>
+      </el-carousel>
     </div>
-    <div class="flex flex-col h-[28vw] justify-around m-auto">
-      <h1 class="text-[#20274b] text-[2vw] font-bold flex justify-center">
+
+    <!-- 右侧登录表单部分 -->
+    <div class="flex flex-col flex-1 h-full justify-center items-center">
+      <h1 class="text-[#20274b] text-[32px] font-bold mb-[5vw]">
         登录，即刻创造您的应用
       </h1>
-      <div>
-        <el-input v-model="username" class="w-[30vw]" placeholder="账号" />
-      </div>
-      <div>
+
+      <el-space direction="vertical" size="large" fill class="w-[400px]">
+        <el-input v-model="username" class="h-[50px]" placeholder="账号" />
         <el-input
           v-model="password"
+          class="h-[50px]"
           show-password
-          class="w-[30vw]"
           placeholder="密码"
         />
+      </el-space>
+
+      <div class="flex items-center w-[400px] mt-[1vw]">
+        <el-checkbox v-model="checked" size="large" /> 我已阅读并同意
+        <el-button type="primary" link :style="{ color: '#0035e3' }">
+          用户协议
+        </el-button>
+        和<el-button type="primary" link :style="{ color: '#0035e3' }">
+          隐私政策
+        </el-button>
       </div>
-      <div>
-        <el-checkbox v-model="checked" size="large" />我已阅读并同意
-        <span class="text-blue-500">用户协议</span>
-        和
-        <span class="text-blue-500">隐私政策</span>
-      </div>
-      <div>
-        <el-button type="primary" class="w-[30vw]">登录</el-button>
-      </div>
-      <div class="flex justify-center">
+
+      <el-button
+        type="primary"
+        class="mt-[30px] w-[400px] h-[50px]"
+        size="large"
+        color="#0035e3"
+        >登录</el-button
+      >
+
+      <div class="flex justify-center mt-[20px]">
         还未注册？
-        <span class="text-blue-500">立即注册</span>
+        <el-button type="primary" :style="{ color: '#0035e3' }" link>
+          立即注册
+        </el-button>
       </div>
     </div>
   </div>
 </template>
+
 <script setup>
 import { ref } from "vue";
 
