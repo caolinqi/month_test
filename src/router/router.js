@@ -3,7 +3,10 @@ import { createRouter, createWebHistory } from "vue-router";
 const routes = [
   { path: "/", redirect: "/login" },
   { path: "/login", component: () => import("../view/Login/Loginpage.vue") },
-  { path: "/layout", component: () => import("../view/layout/layout.vue") },
+  {
+    path: "/layout",
+    component: () => import("../components/layout/layout.vue"),
+  },
 ];
 
 const router = createRouter({

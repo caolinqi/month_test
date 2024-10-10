@@ -31,9 +31,13 @@
       </h1>
 
       <el-space direction="vertical" size="large" fill class="w-[400px]">
-        <el-input v-model="username" class="h-[50px]" placeholder="账号" />
         <el-input
-          v-model="password"
+          v-model="loginInfo.username"
+          class="h-[50px]"
+          placeholder="账号"
+        />
+        <el-input
+          v-model="loginInfo.password"
           class="h-[50px]"
           show-password
           placeholder="密码"
@@ -55,9 +59,9 @@
         class="mt-[30px] w-[400px] h-[50px]"
         size="large"
         color="#0035e3"
+        @click="longinHandler"
         >登录</el-button
       >
-
       <div class="flex justify-center mt-[20px]">
         还未注册？
         <el-button type="primary" :style="{ color: '#0035e3' }" link>
@@ -70,8 +74,33 @@
 
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { getAddress } from "../../api/index";
+import to from "await-to-js";
+import { ElMessage } from "element-plus";
+
+const router = useRouter();
+const loginInfo = ref({
+  username: "3341538119@qq.com",
+  password: "caolinqi041014",
+});
+const longinHandler = async () => {
+  const loginData = {
+    grant_type: "password",
+    username: loginInfo.value.username,
+    password: loginInfo.value.password,
+    client_id: import.meta.env.VITE_CLIENT_ID,
+    client_secret: import.meta.env.VITE_CLIENT_SECRET,
+    scope: import.meta.env.VITE_CLIENT_SCOPE,
+  };
+  const [err, res] = await to(getAddress(loginData));
+  console.log(err, res);
+  ElMessage({
+    message: "登录成功",
+    type: "success",
+  });
+  router.push("/layout");
+};
 
 const checked = ref(false);
-const username = ref("");
-const password = ref("");
 </script>
