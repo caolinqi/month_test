@@ -6,6 +6,28 @@ const routes = [
   {
     path: "/layout",
     component: () => import("../components/layout/layout.vue"),
+    children: [
+      {
+        path: "workbench",
+        component: () => import("../view/home/Workbench.vue"),
+      },
+      {
+        path: "project",
+        component: () => import("../view/home/Project.vue"),
+      },
+      {
+        path: "matter",
+        component: () => import("../view/home/Matter.vue"),
+      },
+      {
+        path: "ai",
+        component: () => import("../view/home/AI.vue"),
+      },
+      {
+        path: "code",
+        component: () => import("../view/home/Code.vue"),
+      },
+    ],
   },
 ];
 
