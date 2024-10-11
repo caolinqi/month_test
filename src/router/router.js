@@ -8,6 +8,10 @@ const routes = [
     component: () => import("../components/layout/layout.vue"),
     children: [
       {
+        path: "",
+        redirect: "layout/code",
+      },
+      {
         path: "workbench",
         component: () => import("../view/home/Workbench.vue"),
       },
@@ -26,6 +30,10 @@ const routes = [
       {
         path: "code",
         component: () => import("../view/home/Code.vue"),
+      },
+      {
+        path: "CreateRepository",
+        component: () => import("../view/home/children/CreateRepository.vue"),
       },
     ],
   },
